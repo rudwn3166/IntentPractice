@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(myIntent)
 
+//            Intent는 실제로 다른 화면으로 이동한 것이 아니라 새 화면에 얹어주는 기능
 
 
         }
