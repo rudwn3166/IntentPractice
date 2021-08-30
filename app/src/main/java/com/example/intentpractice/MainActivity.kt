@@ -10,6 +10,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        sendMessageBtn.setOnClickListener {
+
+//            입력한 내용을 변수에 저장
+//            변수에 문자열 저장시 .text.toString()기능사용
+            val inputMessage = messageEdt.text.toString()
+
+//            인텐트 사용해서 화면 이동 변수 선언
+            val myIntent = Intent(this, MessageActivity::class.java)
+
+//            수화물 첨부->메시지를 받을 화면에 보내줌
+            myIntent.putExtra("message",inputMessage)
+
+//            실제 출발
+            startActivity(myIntent)
+        }
 
         moveToOtherBtn.setOnClickListener {
 
