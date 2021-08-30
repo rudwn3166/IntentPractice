@@ -61,4 +61,25 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+//    내가 다른 화면에서 버튼을 누르면 바로 이 함수가 메인에서 실행됨됨
+   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+//        돌아온 이유가 닉네임을 받으러 다녀온게 맞는지?
+
+        if(requestCode == REQUEST_FOR_NICKNAME){
+
+
+//                추가질문 : 확인을 눌러서 돌아온게 맞는가?
+            if(resultCode == RESULT_OK){
+
+//                실제로 첨부된 새 닉네임을 꺼내서 텍스트뷰에 반영.
+                val newNickname =data?.getStringExtra("nickname")
+                nicknameTxt.text = newNickname
+            }
+        }
+
+    }
+
+
 }
