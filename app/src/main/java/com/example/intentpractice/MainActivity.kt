@@ -1,6 +1,7 @@
 package com.example.intentpractice
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -14,6 +15,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        DIAL 액션 예제
+        dialBtn.setOnClickListener {
+//            phoneNumEdt에 입력한 전화번호를 받아서 ->해당 번호에 전화연결
+
+            val inputPhoneNum = phoneNumEdt.text.toString()
+
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_DIAL,myUri)
+            startActivity(myIntent)
+
+
+
+
+        }
 
 
 //        닉네임 변경 버튼이 눌리면 해야할 작업
