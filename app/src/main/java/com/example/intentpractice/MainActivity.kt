@@ -15,6 +15,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//카카오 스토어 버튼 눌리는 예제
+        kakaoStroreBtn.setOnClickListener {
+
+            val myUri =Uri.parse("market://details?id=com.kakao.talk")
+            val myIntent = Intent(Intent.ACTION_VIEW,myUri)
+            startActivity(myIntent)
+
+        }
+//        네이버 버튼이 눌리는 예제
+        naverWebBtn.setOnClickListener {
+
+            val myUri =Uri.parse("https://naver.com")
+            val myIntent = Intent(Intent.ACTION_VIEW,myUri)
+            startActivity(myIntent)
+
+        }
 
 //        sms메시지 버튼이 눌리는 예제
         smsBtn.setOnClickListener {
