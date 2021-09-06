@@ -16,6 +16,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        sms메시지 버튼이 눌리는 예제
+        smsBtn.setOnClickListener {
+            val inputPhoneNum = phoneNumEdt.text.toString()
+
+            val myUri = Uri.parse("smsto:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_SENDTO,myUri)
+            myIntent.putExtra("sms_body","미리 내용 입력")
+            startActivity(myIntent)
+
+        }
+
+
 
 //        CALL 액션 예제
         callBtn.setOnClickListener {
